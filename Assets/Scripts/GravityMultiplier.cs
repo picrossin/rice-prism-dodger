@@ -12,6 +12,7 @@ public class GravityMultiplier : MonoBehaviour
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.sleepThreshold = 0.0f;
     }
 
     private void FixedUpdate()

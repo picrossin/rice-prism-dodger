@@ -9,37 +9,41 @@ public class Obstruction : MonoBehaviour
     [SerializeField] private Movement movementType = Movement.Horizontal;
     [SerializeField] private float speed = 5f;
     [SerializeField] private string wallTag = "Wall";
+    [SerializeField] private float rotationRadius = 1.0f;
 
-    private Rigidbody _rigidbody;
+    private GameObject _rotationParent;
     private Vector3 _initalPosition;
     private Vector3 _movement;
 
     private void Start()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         _initalPosition = transform.localPosition;
         
         // Set base color
         Material material = GetComponent<Renderer>().material;
         material.SetColor("_BaseColor", color);
         
-        // Do some weird math to calculate and set the emission color
+        // Do some weird math to calculate and set the emission color to make obstruction glow
         float H, S, V;
         Color.RGBToHSV(color, out H, out S, out V);
         Color emissionColor = Color.HSVToRGB(H, S, V / 2.0f);
-        float adjustedIntensity = 0.5f;
-        emissionColor *= Mathf.Pow(2.0F, adjustedIntensity);
+        emissionColor *= Mathf.Pow(2.0F, 1.25f); // The power value is the intensity of the HDR color
         material.SetColor("_EmissionColor", emissionColor);
         
-        // Set initial movement amount
+        // Initial movement setup
         switch (movementType)
         {
             case Movement.Horizontal:
-            case Movement.Rotate:    
                 _movement = Vector3.right;
                 break;
             case Movement.Vertical:
                 _movement = Vector3.forward;
+                break;
+            case Movement.Rotate:
+                _rotationParent = new GameObject("Rotating Obstruction");
+                _rotationParent.transform.position = Vector3.back * rotationRadius + transform.position;
+                _rotationParent.transform.parent = transform.parent;
+                transform.parent = _rotationParent.transform;
                 break;
         }
     }
@@ -58,11 +62,21 @@ public class Obstruction : MonoBehaviour
                 break;
             case Movement.Vertical:
                 transform.localPosition = 
-                    new Vector3(_initalPosition.x, transform.localPosition.y, _initalPosition.z);
+                    new Vector3(_initalPosition.x, _initalPosition.y, transform.localPosition.z);
+                break;
+            case Movement.Rotate:
+                transform.localPosition =                     
+                    new Vector3(transform.localPosition.x, 0, transform.localPosition.z);
+                transform.parent.transform.localRotation = 
+                    Quaternion.Euler(Vector3.up * (transform.parent.transform.localRotation.eulerAngles.y + speed));
                 break;
         }
-        
-        _rigidbody.AddRelativeForce(_movement / 2, ForceMode.Impulse);
+
+        // Scale the movement speed down by 100 so "speed" can be prettier numbers 
+        if (movementType != Movement.Rotate)
+        {
+            transform.localPosition += _movement / 100 * speed;
+        }
     }
     
     void OnCollisionEnter(Collision collision)

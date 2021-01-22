@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class TiltMovement : MonoBehaviour
 {
@@ -9,6 +10,12 @@ public class TiltMovement : MonoBehaviour
     private float smoothSpeed = 0.125f;
 
     private Vector2 _input;
+
+    private void Start()
+    {
+        // Turn up timescale so the physics are faster. This means the gameplay is more fast-paced and fun!!
+        Time.timeScale = 3.0f;
+    }
 
     private void Update()
     {

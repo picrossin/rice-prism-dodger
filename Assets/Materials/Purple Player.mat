@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Purple Player
   m_Shader: {fileID: 4800000, guid: e6879759aa0f34068938df45650d4f6c, type: 3}
-  m_ShaderKeywords: _ADJUSTSPEC _NORMALMAP _SECONDARYCOLOR
+  m_ShaderKeywords: _ADJUSTSPEC _ENVIRONMENTREFLECTIONS_OFF _NORMALMAP _SECONDARYCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -64,7 +64,7 @@ Material:
     - _EnableSecondaryLobe: 0
     - _EnableSecondaryMask: 0
     - _EnableStandardLighting: 0
-    - _EnvironmentReflections: 1
+    - _EnvironmentReflections: 0
     - _Help: 0
     - _Metallic: 0.169
     - _Occlusion: 1
