@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Jaden\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Jaden\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_rice-prism-dodger.-1633571731.00" t="ExcludeRecursive" />
+    <e p="D:\Jaden\Programs\rice-prism-dodger" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Lux URP Essentials" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="LitExtendedShader.cs" t="Include" />
+              <e p="LuxURPCameraFadeDrawer.cs" t="Include" />
+              <e p="LuxURPCustomShaderGUI.cs" t="Include" />
+              <e p="LuxURPCustomSingleSidedShaderGUI.cs" t="Include" />
+              <e p="LuxURPHelpDrawer.cs" t="Include" />
+              <e p="LuxURPParticlesCustomShaderGUI1.cs" t="Include" />
+              <e p="LuxURPUniversalCustomShaderGUI.cs" t="Include" />
+              <e p="LuxURPVectorFourDrawer.cs" t="Include" />
+              <e p="LuxURPVectorThreeDrawer.cs" t="Include" />
+              <e p="LuxURPVectorTwoDrawer.cs" t="Include" />
+              <e p="LuxURPVectorTwoInverseDrawer.cs" t="Include" />
+              <e p="MaterialHeaderHelpLuxURPURLDecorator.cs" t="Include" />
+            </e>
+            <e p="LuxURP_HelpBtn.cs" t="Include" />
+            <e p="LuxURP_LayerBasedCulling.cs" t="Include" />
+          </e>
+          <e p="Shader Graphs" t="Include">
+            <e p="Includes" t="Include">
+              <e p="Lux_Advanced_Parallax.hlsl" t="Include" />
+              <e p="Lux_Camera_Fade.hlsl" t="Include" />
+              <e p="Lux_Improved_Sampling.hlsl" t="Include" />
+              <e p="Lux_Lighting_CharlieSheen.hlsl" t="Include" />
+              <e p="Lux_Lighting_ClearCoat.hlsl" t="Include" />
+              <e p="Lux_Lighting_Flat.hlsl" t="Include" />
+              <e p="Lux_Lighting_GGX_Anisotropic.hlsl" t="Include" />
+              <e p="Lux_Lighting_Skin.hlsl" t="Include" />
+              <e p="Lux_Lighting_Toon.hlsl" t="Include" />
+              <e p="Lux_Lighting_Transmission.hlsl" t="Include" />
+              <e p="Lux_Lighting_Transparent.hlsl" t="Include" />
+              <e p="Lux_Procedural_Texturing.hlsl" t="Include" />
+              <e p="Lux_Procedural_Texturing_Simple.hlsl" t="Include" />
+            </e>
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Clear Coat" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Clear Coat Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Clear Coat.shader" t="Include" />
+            </e>
+            <e p="Depth Only" t="Include">
+              <e p="Lux URP Depth Only.shader" t="Include" />
+            </e>
+            <e p="Flat Shaded" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Flat Shaded Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Flat Shaded.shader" t="Include" />
+            </e>
+            <e p="Fuzzy" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Simple Fuzz Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Simple Fuzz.shader" t="Include" />
+            </e>
+            <e p="Includes" t="Include">
+              <e p="Lux URP Blend Lighting.hlsl" t="Include" />
+              <e p="Lux URP Clear Coat Lighting.hlsl" t="Include" />
+              <e p="Lux URP Simple Fuzz Lighting.hlsl" t="Include" />
+              <e p="Lux URP Translucent Lighting.hlsl" t="Include" />
+              <e p="Lux URP Transparent Lighting.hlsl" t="Include" />
+            </e>
+            <e p="Lit Extended" t="Include">
+              <e p="Editor" t="Include">
+                <e p="LuxUberShaderGUI.cs" t="Include" />
+              </e>
+              <e p="Includes" t="Include">
+                <e p="Lux URP Lit Extended Inputs.hlsl" t="Include" />
+                <e p="Lux URP Lit Extended Lighting.hlsl" t="Include" />
+                <e p="Lux URP Uber Lit Pass.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Lit Extended Uber.shader" t="Include" />
+              <e p="Lux URP Lit Extended.shader" t="Include" />
+            </e>
+            <e p="Outline" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Fast Outlines AlphaTested Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Fast Outline AlphaTested.shader" t="Include" />
+              <e p="Lux URP Fast Outline.shader" t="Include" />
+              <e p="Lux URP Toon Outline.shader" t="Include" />
+            </e>
+            <e p="Particles" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Particles Simple Lit Forward Pass.hlsl" t="Include" />
+                <e p="Lux URP Particles Simple Lit Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Particles Simple Lit Tess.shader" t="Include" />
+              <e p="Lux URP Particles Simple Lit.shader" t="Include" />
+            </e>
+            <e p="Projection" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Top Down URP Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Projection Top Down.shader" t="Include" />
+            </e>
+            <e p="Versatile Blend" t="Include">
+              <e p="Includes" t="Include">
+                <e p="Lux URP Versatile Blend Inputs.hlsl" t="Include" />
+              </e>
+              <e p="Lux URP Versatile Blend.shader" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="TiltMovement.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="rice-prism-dodger.sln" t="IncludeFlat" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
