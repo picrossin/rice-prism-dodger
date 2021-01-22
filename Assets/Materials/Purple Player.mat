@@ -76,7 +76,7 @@ Material:
     - _RimFrequency: 0
     - _RimMinPower: 1
     - _RimPerPositionFrequency: 1
-    - _RimPower: 2
+    - _RimPower: 1.16
     - _ShadowStrength: 0.7
     - _Shadows: 0
     - _Smoothness: 0.316
