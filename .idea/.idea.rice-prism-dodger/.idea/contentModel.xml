@@ -115,10 +115,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="GravityMultiplier.cs" t="Include" />
           <e p="Manager.cs" t="Include" />
           <e p="Obstruction.cs" t="Include" />
           <e p="ObstructionData.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="TiltMovement.cs" t="Include" />
         </e>

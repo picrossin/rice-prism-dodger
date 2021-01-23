@@ -1,11 +1,15 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
-public class GravityMultiplier : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Tooltip("Multiplies the gravity of the rigidbody of this GameObject by the specified multiplier.")]
     [SerializeField] [Range(1.0f, 50.0f)]
     private float gravityMultiplier = 2f;
+
+    [SerializeField] private string finishTag = "Finish";
 
     private Rigidbody _rigidbody;
 
@@ -18,5 +22,13 @@ public class GravityMultiplier : MonoBehaviour
     private void FixedUpdate()
     {
         _rigidbody.AddForce(Physics.gravity * (gravityMultiplier - 1f), ForceMode.Acceleration);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag(finishTag))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
