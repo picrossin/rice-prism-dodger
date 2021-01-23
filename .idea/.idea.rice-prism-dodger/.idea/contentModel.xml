@@ -119,6 +119,7 @@
           <e p="Obstruction.cs" t="Include" />
           <e p="ObstructionData.cs" t="Include" />
           <e p="Player.cs" t="Include" />
+          <e p="SmoothCameraFollow.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="TiltMovement.cs" t="Include" />
         </e>
