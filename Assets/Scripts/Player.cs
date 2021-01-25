@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
-    [Tooltip("Multiplies the gravity of the rigidbody of this GameObject by the specified multiplier.")]
-    [SerializeField] [Range(1.0f, 50.0f)]
-    private float gravityMultiplier = 2f;
-
+    [SerializeField] [Range(0.0f, 50.0f)] private float speed = 1.0f;
     [SerializeField] private string finishTag = "Finish";
+
+    private Vector2 _playerInput;
+    public Vector2 PlayerInput => _playerInput;
 
     private Rigidbody _rigidbody;
 
@@ -19,9 +19,15 @@ public class Player : MonoBehaviour
         _rigidbody.sleepThreshold = 0.0f;
     }
 
+    private void Update()
+    {
+        _playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    }
+
     private void FixedUpdate()
     {
-        _rigidbody.AddForce(Physics.gravity * (gravityMultiplier - 1f), ForceMode.Acceleration);
+        Vector3 movement = new Vector3 (_playerInput.x, 0, _playerInput.y);
+        _rigidbody.AddForce(movement * speed);
     }
 
     private void OnTriggerEnter(Collider other)

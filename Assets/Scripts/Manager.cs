@@ -5,7 +5,8 @@ using UnityEngine;
 public class Manager : MonoBehaviour
 {
     [SerializeField] private string obstructionTag = "Obstruction";
-
+    [SerializeField] private string levelTag = "Level";
+    
     private GameObject[] _obstructions;
 
     private void Start()
@@ -15,9 +16,10 @@ public class Manager : MonoBehaviour
             // Some editable presets for obstruction data
             CreateObstructionJSON(Obstruction.Movement.Horizontal, Color.green, 3f, 0f);
             CreateObstructionJSON(Obstruction.Movement.Vertical, Color.red, 3f, 0f);
-            CreateObstructionJSON(Obstruction.Movement.Rotate, new Color(0.66f, 0f, 1f), 0.5f, 3f);
+            CreateObstructionJSON(Obstruction.Movement.Rotate, new Color(0.66f, 0f, 1f), 1.5f, 2f);
         }
 
+        GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().GenerateLevel(6, 3);
         LoadObstructionData();
     }
 

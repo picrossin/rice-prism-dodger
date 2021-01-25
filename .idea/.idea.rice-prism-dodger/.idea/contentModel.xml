@@ -115,13 +115,16 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="LevelGenerator.cs" t="Include" />
+          <e p="LevelSection.cs" t="Include" />
           <e p="Manager.cs" t="Include" />
           <e p="Obstruction.cs" t="Include" />
           <e p="ObstructionData.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SmoothCameraFollow.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
-          <e p="TiltMovement.cs" t="Include" />
+          <e p="StartPieceExit.cs" t="Include" />
+          <e p="StartSection.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

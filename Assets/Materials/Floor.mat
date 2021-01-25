@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Floor
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: e6879759aa0f34068938df45650d4f6c, type: 3}
+  m_ShaderKeywords: _ADJUSTSPEC _NORMALMAP _RIMLIGHTING _SECONDARYCOLOR
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -22,13 +22,13 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _EmissionMap:
+    - _CoatMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -36,56 +36,66 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MetallicGlossMap:
+    - _MaskMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _OcclusionMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SpecGlossMap:
+    - _SecondaryMask:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _BumpScale: 1
+    - _AdjustSpec: 1
+    - _AlphaFromMaskMap: 1
+    - _Anisotropy: 0
+    - _ApplyNormal: 1
+    - _BumpScale: 0.48
+    - _ClearCoatSmoothness: 0.156
+    - _ClearCoatThickness: 0.32
     - _Cull: 2
+    - _Culling: 0
     - _Cutoff: 0.5
-    - _DstBlend: 0
+    - _Distortion: 0.01
+    - _EnableAlphaTesting: 0
+    - _EnableBaseMap: 0
+    - _EnableCoatMask: 0
+    - _EnableMaskMap: 0
+    - _EnableSecColor: 1
+    - _EnableSecondaryLobe: 0
+    - _EnableSecondaryMask: 0
+    - _EnableStandardLighting: 0
     - _EnvironmentReflections: 1
-    - _GlossMapScale: 0
-    - _Glossiness: 0
-    - _GlossyReflections: 0
-    - _Metallic: 0
+    - _Help: 0
+    - _Metallic: 0.169
+    - _Occlusion: 1
     - _OcclusionStrength: 1
     - _QueueOffset: 0
+    - _ReadMask: 255
     - _ReceiveShadows: 1
-    - _SampleGI: 0
-    - _Smoothness: 0.5
-    - _SmoothnessTextureChannel: 0
+    - _Rim: 1
+    - _RimFrequency: 0
+    - _RimMinPower: 1
+    - _RimPerPositionFrequency: 1
+    - _RimPower: 0.32
+    - _ShadowStrength: 0.7
+    - _Shadows: 0
+    - _Smoothness: 0.316
     - _SpecularHighlights: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZWrite: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilFail: 0
+    - _StencilOp: 0
+    - _StencilZFail: 0
+    - _TranslucencyPower: 7
+    - _TranslucencyStrength: 1
+    - _UseCottonWool: 0
+    - _UseScattering: 0
+    - _WriteMask: 255
     m_Colors:
-    - _BaseColor: {r: 0.54509807, g: 0.67058825, b: 0.8470589, a: 1}
+    - _BaseColor: {r: 1, g: 0.92549026, b: 0.27058825, a: 1}
+    - _ClearCoatSpecular: {r: 0.2, g: 0.2, b: 0.2, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &1354468001320569066
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 2
+    - _RimColor: {r: 0.9386859, g: 0.082282715, b: 0.043735042, a: 1}
+    - _SecondaryColor: {r: 0.9725491, g: 0.31764707, b: 0.23137257, a: 1}
+    - _SheenColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _SpecColor: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 1}
