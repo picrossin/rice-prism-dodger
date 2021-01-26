@@ -125,6 +125,7 @@
           <e p="Spawner.cs" t="Include" />
           <e p="StartPieceExit.cs" t="Include" />
           <e p="StartSection.cs" t="Include" />
+          <e p="TimeManager.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

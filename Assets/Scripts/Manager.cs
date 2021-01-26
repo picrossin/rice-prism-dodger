@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
+[RequireComponent(typeof(TimeManager))]
 public class Manager : MonoBehaviour
 {
     public static Manager Instance { set; get; }
 
+    [Header("Player Setup")] 
+    [SerializeField] private int lives = 3;
+    
     [Header("Level Difficulty Setup")] 
     [SerializeField] private int regularPieceCount = 2;
     [SerializeField] private int turnPieceCount = 1;
@@ -21,9 +26,12 @@ public class Manager : MonoBehaviour
     [SerializeField] private string obstructionTag = "Obstruction";
     [SerializeField] private string levelTag = "Level";
 
+    private TimeManager _timeManager;
+    
     private GameObject[] _obstructions;
     private int _regularPieceIncreaseCounter = 0;
     private int _turnPieceIncreaseCounter = 0;
+    private int _level = 1;
 
     private void Start()
     {
@@ -37,6 +45,8 @@ public class Manager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _timeManager = GetComponent<TimeManager>();
         
         Random.InitState(222);
 
@@ -53,6 +63,9 @@ public class Manager : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        _timeManager.StopAndLogTime(_level);
+        _level++;
+        
         // play level transition here
         MaybeIncreasePieceCount(regularPieceIncreaseFrequency, ref _regularPieceIncreaseCounter, ref regularPieceCount);
         MaybeIncreasePieceCount(turnPieceIncreaseFrequency, ref _turnPieceIncreaseCounter, ref turnPieceCount);
@@ -62,7 +75,18 @@ public class Manager : MonoBehaviour
 
     public void ResetLevel()
     {
-        GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
+        lives--;
+        if (lives <= 0)
+        {
+            _level = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // TODO: switch this to title screen when implemented
+        }
+        else
+        {
+            GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
+        }
+        
+        _timeManager.StartTimer();
     }
 
     private void SetupLevel(int newRegularPieceCount, int newTurnPieceCount)
@@ -70,6 +94,7 @@ public class Manager : MonoBehaviour
         GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>()
             .GenerateLevel(newRegularPieceCount, newTurnPieceCount);
         LoadObstructionData();
+        _timeManager.StartTimer();
     }
 
     private void CreateObstructionJSON(Obstruction.Movement movementType, Color color,

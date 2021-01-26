@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5708445-87f5-455f-9fd3-921b65e951b0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Level Sections/Start.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Level Sections/Start.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGenerator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartSection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartSection.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,17 +15,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SmoothCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/GameStateManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/SaveManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartSection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LevelGenerator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/ObstructionData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartPieceExit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/SaveSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SmoothCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/GameStateManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/SaveManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartSection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/SaveSerializer.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/SaveState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Player/MovePlayer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -49,6 +44,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelGenerator.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
       </list>
     </option>
   </component>
@@ -92,7 +88,7 @@
       <updated>1611293944987</updated>
       <workItem from="1611293960203" duration="24679000" />
       <workItem from="1611542242447" duration="5379000" />
-      <workItem from="1611564429487" duration="8642000" />
+      <workItem from="1611564429487" duration="11272000" />
     </task>
     <servers />
   </component>
@@ -113,6 +109,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="92" y="92" width="1736" height="866" key="VCS.FileHistoryDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1611613624034" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1611637126903">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1611637126903" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1611613337945">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
