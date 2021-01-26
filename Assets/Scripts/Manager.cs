@@ -83,11 +83,12 @@ public class Manager : MonoBehaviour
         if (lives <= 0)
         {
             _level = 1;
+            lives = 3;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // TODO: switch this to title screen when implemented
         }
         else
         {
-            GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
+            GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();
         }
         
         _timeManager.StartTimer(regularPieceCount, turnPieceCount, _level);

@@ -154,10 +154,10 @@ RectTransform:
   m_Father: {fileID: 679343699}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 181.49, y: 181.1}
-  m_SizeDelta: {x: 25.458183, y: 25.458176}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 136.79999, y: -316.00003}
+  m_SizeDelta: {x: 25.458183, y: 25.45813}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &22357979
 MonoBehaviour:
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1461b0e975d8841bac388b004475c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimapRadius: 120
+  minimapRadius: 80
   playerTag: Player
   finishTag: Finish
   _uiLineRenderer: {fileID: 1978390421}
@@ -1477,9 +1477,9 @@ RectTransform:
   m_Father: {fileID: 679343699}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 181.48999, y: 181.1}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 138, y: -316}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1978390421

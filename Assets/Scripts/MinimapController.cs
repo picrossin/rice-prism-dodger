@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 
 public class MinimapController : MonoBehaviour
@@ -49,9 +50,12 @@ public class MinimapController : MonoBehaviour
         }
         
         playerCoordinate -= finishCoordinate;
+        playerCoordinate *= transform.parent.GetComponent<Canvas>().scaleFactor;
         playerCoordinate *= _scalar;
         _playerIcon.transform.position = transform.position + (Vector3) playerCoordinate;
-
+        playerCoordinate /= transform.parent.GetComponent<Canvas>().scaleFactor;
+        
+        // Update the line (for some reason it only works if you give it a new array)
         Vector2[] pointList = (Vector2[]) _uiLineRenderer.Points.Clone();
         pointList[1] = playerCoordinate;
         _uiLineRenderer.Points = pointList;
