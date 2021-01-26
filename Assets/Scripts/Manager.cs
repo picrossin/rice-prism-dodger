@@ -10,7 +10,8 @@ public class Manager : MonoBehaviour
     public static Manager Instance { set; get; }
 
     [Header("Player Setup")] 
-    [SerializeField] private int lives = 3;
+    [SerializeField] private int lives;
+    public int Lives => lives;
     
     [Header("Level Difficulty Setup")] 
     [SerializeField] private int regularPieceCount = 2;

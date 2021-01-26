@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bestTime;
     [SerializeField] private GameObject[] stars;
     [SerializeField] private TextMeshProUGUI level;
+    [SerializeField] private GameObject[] lives;
 
     private bool _starsInitialized;
     
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
         UpdateBestTime();
         UpdateStars();
         UpdateLevel();
+        UpdateLives();
     }
 
     private void OnEnable()
@@ -51,14 +53,31 @@ public class UIManager : MonoBehaviour
         _starsInitialized = false;
         
         int time = (int) timeManager.Timer;
-        if (time > timeManager.ThreeStarGoal)
+        if (time > timeManager.ThreeStarGoal && stars[stars.Length - 1].activeSelf)
         {
             stars[stars.Length - 1].SetActive(false);
         }
 
-        if (time > timeManager.ThreeStarGoal + timeManager.TwoStarThreshold)
+        if (time > timeManager.ThreeStarGoal + timeManager.TwoStarThreshold && stars[stars.Length - 2].activeSelf)
         {
             stars[stars.Length - 2].SetActive(false);
+        }
+    }
+
+    private void UpdateLives()
+    {
+        int lifeCount = Manager.Instance.Lives;
+
+        for (int i = 3; i > lifeCount; i--)
+        {
+            if (lifeCount > 0 && lives[i - 1].activeSelf)
+            {
+                lives[i - 1].SetActive(false);
+            }
+            else if (lifeCount <= 0)
+            {
+                lives[i - 1].SetActive(true);
+            }
         }
     }
 
