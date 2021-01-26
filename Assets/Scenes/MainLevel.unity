@@ -164,6 +164,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fe6e2adaf988846bbd1fc9da79b8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  regularPieceCount: 2
+  turnPieceCount: 1
+  regularPieceIncreaseFrequency: 1
+  turnPieceIncreaseFrequency: 3
   obstructionTag: Obstruction
   levelTag: Level
 --- !u!1 &228676949
@@ -447,6 +451,7 @@ MonoBehaviour:
   - {fileID: 5457238284158702387, guid: c1d42c4f389e8d04193af473ab356332, type: 3}
   - {fileID: 7191788863383232885, guid: 86615bd1560402f4586eb97a4f7a9213, type: 3}
   - {fileID: 3477261558119853938, guid: bf51c5ce3ce1e714f81db5987bc498c3, type: 3}
+  - {fileID: 6989030158423814773, guid: 5519907d7b4d21340ad557e9f2e56905, type: 3}
 --- !u!1 &1834096896
 GameObject:
   m_ObjectHideFlags: 0

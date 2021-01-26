@@ -10,16 +10,26 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject rightTurnPiece;
     [SerializeField] private GameObject[] otherLevelSections;
 
-    private float _currentRotation = 0f;
-    private Vector3 _currentLocation = Vector3.zero;
+    private float _currentRotation;
+    private Vector3 _currentLocation;
+    private GameObject _startPieceInstance;
 
     public void GenerateLevel(int regularPieceCount, int turnPieceCount)
     {
-        // Set up the start
-        GameObject startPieceInstance = Instantiate(startPiece, _currentLocation, CalculateRotation());
-        SetParent(startPieceInstance);
+        // Clear out old level, if any
+        foreach (Transform section in transform)
+        {
+            Destroy(section.gameObject);
+        }
 
-        StartSection startSection = startPieceInstance.GetComponent<StartSection>();
+        _currentRotation = 0f;
+        _currentLocation = Vector3.zero;
+        
+        // Set up the start
+        _startPieceInstance = Instantiate(startPiece, _currentLocation, CalculateRotation());
+        SetParent(_startPieceInstance);
+
+        StartSection startSection = _startPieceInstance.GetComponent<StartSection>();
         StartPieceExit startPieceExit = startSection.Exits[Random.Range(0, startSection.Exits.Length)];
         _currentRotation = startPieceExit.Rotation;
         _currentLocation = startPieceExit.transform.position;
@@ -62,6 +72,14 @@ public class LevelGenerator : MonoBehaviour
         // Generate level exit
         GameObject exitPieceInstance = Instantiate(endPiece, _currentLocation, CalculateRotation());
         SetParent(exitPieceInstance);
+    }
+
+    public void RespawnPlayer()
+    {
+        if (_startPieceInstance != null)
+        {
+            _startPieceInstance.GetComponent<StartSection>().PlayerSpawner.Spawn();
+        }
     }
 
     private Quaternion CalculateRotation()

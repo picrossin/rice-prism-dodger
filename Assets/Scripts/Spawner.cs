@@ -6,6 +6,11 @@ public class Spawner : MonoBehaviour
     
     private void Start()
     {
+        Spawn();
+    }
+
+    public void Spawn()
+    {
         Instantiate(objectToSpawn, transform.position, Quaternion.identity);
     }
 }

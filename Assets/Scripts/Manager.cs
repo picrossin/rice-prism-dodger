@@ -1,16 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager Instance { set; get; }
+
+    [Header("Level Difficulty Setup")] 
+    [SerializeField] private int regularPieceCount = 2;
+    [SerializeField] private int turnPieceCount = 1;
+    
+    [Tooltip("Levels between regular piece count increases.")] [SerializeField] 
+    private int regularPieceIncreaseFrequency = 1;
+    
+    [Tooltip("Levels between turn piece count increases.")] [SerializeField] 
+    private int turnPieceIncreaseFrequency = 3;
+
+    [Header("Tag Strings")]
     [SerializeField] private string obstructionTag = "Obstruction";
     [SerializeField] private string levelTag = "Level";
-    
+
     private GameObject[] _obstructions;
+    private int _regularPieceIncreaseCounter = 0;
+    private int _turnPieceIncreaseCounter = 0;
 
     private void Start()
     {
+        // Make sure there is only one manager
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        
+        Random.InitState(222);
+
         if (!PlayerPrefs.HasKey(Obstruction.Movement.Horizontal.ToString()))
         {
             // Some editable presets for obstruction data
@@ -19,7 +48,27 @@ public class Manager : MonoBehaviour
             CreateObstructionJSON(Obstruction.Movement.Rotate, new Color(0.66f, 0f, 1f), 1.5f, 2f);
         }
 
-        GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().GenerateLevel(6, 3);
+        SetupLevel(regularPieceCount, turnPieceCount);
+    }
+
+    public void LoadNextLevel()
+    {
+        // play level transition here
+        MaybeIncreasePieceCount(regularPieceIncreaseFrequency, ref _regularPieceIncreaseCounter, ref regularPieceCount);
+        MaybeIncreasePieceCount(turnPieceIncreaseFrequency, ref _turnPieceIncreaseCounter, ref turnPieceCount);
+        
+        SetupLevel(regularPieceCount, turnPieceCount);
+    }
+
+    public void ResetLevel()
+    {
+        GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
+    }
+
+    private void SetupLevel(int newRegularPieceCount, int newTurnPieceCount)
+    {
+        GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>()
+            .GenerateLevel(newRegularPieceCount, newTurnPieceCount);
         LoadObstructionData();
     }
 
@@ -59,6 +108,17 @@ public class Manager : MonoBehaviour
         {
             Obstruction obstruction = obstructionObject.GetComponent<Obstruction>();
             obstruction.SetData(obstructionDataset[obstruction.MovementType.ToString()]);
+        }
+    }
+
+    private void MaybeIncreasePieceCount(int frequency, ref int counter, ref int pieceCount)
+    {
+        counter++;
+        
+        if (counter == frequency)
+        {
+            counter = 0;
+            pieceCount++;
         }
     }
 }

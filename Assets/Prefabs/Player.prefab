@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 12
   finishTag: Finish
+  outOfBoundsDistance: 6

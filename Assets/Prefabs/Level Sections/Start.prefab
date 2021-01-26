@@ -183,6 +183,7 @@ MonoBehaviour:
   - {fileID: 5337845165214790172}
   - {fileID: 4663689755325484603}
   - {fileID: 5774037556695481984}
+  playerSpawner: {fileID: 1223150146821072970}
 --- !u!1 &6800163498909608758
 GameObject:
   m_ObjectHideFlags: 0
