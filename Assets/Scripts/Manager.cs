@@ -29,10 +29,12 @@ public class Manager : MonoBehaviour
     private TimeManager _timeManager;
     public TimeManager TimeManager => _timeManager;
 
+    private int _level = 1;
+    public int Level => _level;
+
     private GameObject[] _obstructions;
     private int _regularPieceIncreaseCounter = 0;
     private int _turnPieceIncreaseCounter = 0;
-    private int _level = 1;
 
     private void Start()
     {

@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private TextMeshProUGUI bestTime;
     [SerializeField] private GameObject[] stars;
+    [SerializeField] private TextMeshProUGUI level;
 
     private bool _starsInitialized;
     
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
         UpdateTimer();
         UpdateBestTime();
         UpdateStars();
+        UpdateLevel();
     }
 
     private void OnEnable()
@@ -35,6 +37,11 @@ public class UIManager : MonoBehaviour
     private void UpdateBestTime()
     {
         bestTime.text = $"best: {FormatIntTime(Manager.Instance.TimeManager.CurrentLevelBestTime, true)}";
+    }
+
+    private void UpdateLevel()
+    {
+        level.text = $"level {Manager.Instance.Level}";
     }
 
     private void UpdateStars()
