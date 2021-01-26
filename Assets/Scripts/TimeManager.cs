@@ -2,16 +2,21 @@
 
 public class TimeManager : MonoBehaviour
 {
-    [Tooltip("The average number of seconds it takes to clear a regular piece.")]
-    [SerializeField] private float regularPieceGoalTime = 3.0f;
+    [Tooltip("The average number of seconds it takes to clear a regular piece.")] [SerializeField]
+    private float regularPieceGoalTime = 3.0f;
 
-    [Tooltip("The average number of seconds it takes to clear a turn piece.")]
-    [SerializeField] private float turnPieceGoalTime = 2.0f;
-    
-    [Tooltip("The calculated three-star time - the two-star threshold = two-star time.")]
-    [SerializeField] private float twoStarThreshold = 4.0f;
-    
+    [Tooltip("The average number of seconds it takes to clear a turn piece.")] [SerializeField]
+    private float turnPieceGoalTime = 2.0f;
+
+    [Tooltip("The calculated three-star time - the two-star threshold = two-star time.")] [SerializeField]
+    private float twoStarThreshold = 4.0f;
+
     private float _timer;
+    public float Timer => _timer;
+
+    private int _currentLevelBestTime;
+    public int CurrentLevelBestTime => _currentLevelBestTime;
+
     private float _threeStarGoal;
     private bool _counting;
 
@@ -23,10 +28,12 @@ public class TimeManager : MonoBehaviour
         }
     }
 
-    public void StartTimer(int regularPieceCount, int turnPieceCount)
+    public void StartTimer(int regularPieceCount, int turnPieceCount, int level)
     {
         _timer = 0.0f;
         _counting = true;
+
+        _currentLevelBestTime = PlayerPrefs.HasKey($"level{level}") ? PlayerPrefs.GetInt($"level{level}") : 0;
 
         _threeStarGoal = regularPieceCount * regularPieceGoalTime + turnPieceCount * turnPieceGoalTime;
     }
@@ -39,7 +46,7 @@ public class TimeManager : MonoBehaviour
         if (PlayerPrefs.HasKey($"level{level}"))
         {
             int currentBestTime = PlayerPrefs.GetInt($"level{level}");
-            if ((int) _timer <= currentBestTime)
+            if ((int) _timer >= currentBestTime)
             {
                 setHighScore = false;
             }
@@ -47,9 +54,8 @@ public class TimeManager : MonoBehaviour
 
         if (setHighScore)
         {
-            PlayerPrefs.SetInt($"level{level}", (int)_timer);
+            PlayerPrefs.SetInt($"level{level}", (int) _timer);
+            _currentLevelBestTime = (int) _timer;
         }
-        
-        Debug.Log($"Time: {(int)_timer}");
     }
 }

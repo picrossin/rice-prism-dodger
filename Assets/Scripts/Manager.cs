@@ -25,9 +25,10 @@ public class Manager : MonoBehaviour
     [Header("Tag Strings")]
     [SerializeField] private string obstructionTag = "Obstruction";
     [SerializeField] private string levelTag = "Level";
-
-    private TimeManager _timeManager;
     
+    private TimeManager _timeManager;
+    public TimeManager TimeManager => _timeManager;
+
     private GameObject[] _obstructions;
     private int _regularPieceIncreaseCounter = 0;
     private int _turnPieceIncreaseCounter = 0;
@@ -86,7 +87,7 @@ public class Manager : MonoBehaviour
             GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
         }
         
-        _timeManager.StartTimer(regularPieceCount, turnPieceCount);
+        _timeManager.StartTimer(regularPieceCount, turnPieceCount, _level);
     }
 
     private void SetupLevel(int newRegularPieceCount, int newTurnPieceCount)
@@ -94,7 +95,7 @@ public class Manager : MonoBehaviour
         GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>()
             .GenerateLevel(newRegularPieceCount, newTurnPieceCount);
         LoadObstructionData();
-        _timeManager.StartTimer(regularPieceCount, turnPieceCount);
+        _timeManager.StartTimer(regularPieceCount, turnPieceCount, _level);
     }
 
     private void CreateObstructionJSON(Obstruction.Movement movementType, Color color,
