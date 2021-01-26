@@ -1,18 +1,30 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI timer;
-    public TextMeshProUGUI Timer => timer;
-    
     [SerializeField] private TextMeshProUGUI bestTime;
-    public TextMeshProUGUI BestTime => bestTime;
+    [SerializeField] private GameObject[] stars;
+
+    private bool _starsInitialized;
     
     private void Update()
     {
         UpdateTimer();
         UpdateBestTime();
+        UpdateStars();
+    }
+
+    private void OnEnable()
+    {
+        TimeManager.OnStarted += ResetStars;
+    }
+
+    private void OnDisable()
+    {
+        TimeManager.OnStarted -= ResetStars;
     }
 
     private void UpdateTimer()
@@ -25,7 +37,33 @@ public class UIManager : MonoBehaviour
         bestTime.text = $"best: {FormatIntTime(Manager.Instance.TimeManager.CurrentLevelBestTime, true)}";
     }
 
-    private string FormatIntTime(int seconds, bool checkForInvalidScore=false)
+    private void UpdateStars()
+    {
+        TimeManager timeManager = Manager.Instance.TimeManager;
+
+        _starsInitialized = false;
+        
+        int time = (int) timeManager.Timer;
+        if (time > timeManager.ThreeStarGoal)
+        {
+            stars[stars.Length - 1].SetActive(false);
+        }
+
+        if (time > timeManager.ThreeStarGoal + timeManager.TwoStarThreshold)
+        {
+            stars[stars.Length - 2].SetActive(false);
+        }
+    }
+
+    private void ResetStars()
+    {
+        foreach (GameObject star in stars)
+        {
+            star.SetActive(true);
+        }
+    }
+
+    private string FormatIntTime(int seconds, bool checkForInvalidScore = false)
     {
         string timeText = "0";
         if (seconds < 10)

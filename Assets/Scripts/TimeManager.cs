@@ -10,6 +10,7 @@ public class TimeManager : MonoBehaviour
 
     [Tooltip("The calculated three-star time - the two-star threshold = two-star time.")] [SerializeField]
     private float twoStarThreshold = 4.0f;
+    public float TwoStarThreshold => twoStarThreshold;
 
     private float _timer;
     public float Timer => _timer;
@@ -18,6 +19,11 @@ public class TimeManager : MonoBehaviour
     public int CurrentLevelBestTime => _currentLevelBestTime;
 
     private float _threeStarGoal;
+    public float ThreeStarGoal => _threeStarGoal;
+
+    public delegate void StartAction();
+    public static event StartAction OnStarted;
+    
     private bool _counting;
 
     private void Update()
@@ -30,6 +36,8 @@ public class TimeManager : MonoBehaviour
 
     public void StartTimer(int regularPieceCount, int turnPieceCount, int level)
     {
+        OnStarted?.Invoke();
+
         _timer = 0.0f;
         _counting = true;
 
