@@ -86,7 +86,7 @@ public class Manager : MonoBehaviour
             GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>().RespawnPlayer();   
         }
         
-        _timeManager.StartTimer();
+        _timeManager.StartTimer(regularPieceCount, turnPieceCount);
     }
 
     private void SetupLevel(int newRegularPieceCount, int newTurnPieceCount)
@@ -94,7 +94,7 @@ public class Manager : MonoBehaviour
         GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>()
             .GenerateLevel(newRegularPieceCount, newTurnPieceCount);
         LoadObstructionData();
-        _timeManager.StartTimer();
+        _timeManager.StartTimer(regularPieceCount, turnPieceCount);
     }
 
     private void CreateObstructionJSON(Obstruction.Movement movementType, Color color,
