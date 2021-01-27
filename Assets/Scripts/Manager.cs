@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -26,10 +27,11 @@ public class Manager : MonoBehaviour
     [Header("Tag Strings")]
     [SerializeField] private string obstructionTag = "Obstruction";
     [SerializeField] private string levelTag = "Level";
+    [SerializeField] private string uiManagerTag = "UIManager";
     
     private TimeManager _timeManager;
     public TimeManager TimeManager => _timeManager;
-
+    
     private int _level = 1;
     public int Level => _level;
 
@@ -62,19 +64,26 @@ public class Manager : MonoBehaviour
             CreateObstructionJSON(Obstruction.Movement.Rotate, new Color(0.66f, 0f, 1f), 1.5f, 2f);
         }
 
-        SetupLevel(regularPieceCount, turnPieceCount);
+        StartCoroutine(SetupLevel(regularPieceCount, turnPieceCount));
     }
 
     public void LoadNextLevel()
     {
+        StartCoroutine(LoadNextLevelHelper());
+    }
+
+    private IEnumerator LoadNextLevelHelper()
+    {
         _timeManager.StopAndLogTime(_level);
         _level++;
         
-        // play level transition here
+        yield return StartCoroutine(GameObject.FindGameObjectWithTag(uiManagerTag).GetComponent<UIManager>()
+            .PlayAnimation("End"));
+        
         MaybeIncreasePieceCount(regularPieceIncreaseFrequency, ref _regularPieceIncreaseCounter, ref regularPieceCount);
         MaybeIncreasePieceCount(turnPieceIncreaseFrequency, ref _turnPieceIncreaseCounter, ref turnPieceCount);
         
-        SetupLevel(regularPieceCount, turnPieceCount);
+        StartCoroutine(SetupLevel(regularPieceCount, turnPieceCount, true));
     }
 
     public void ResetLevel()
@@ -94,12 +103,21 @@ public class Manager : MonoBehaviour
         _timeManager.StartTimer(regularPieceCount, turnPieceCount, _level);
     }
 
-    private void SetupLevel(int newRegularPieceCount, int newTurnPieceCount)
+    private IEnumerator SetupLevel(int newRegularPieceCount, int newTurnPieceCount, bool playAnimation=false)
     {
         GameObject.FindGameObjectWithTag(levelTag).GetComponent<LevelGenerator>()
             .GenerateLevel(newRegularPieceCount, newTurnPieceCount);
         LoadObstructionData();
+        
+        if (playAnimation)
+        {
+            yield return new WaitForSeconds(0.5f);
+            yield return StartCoroutine(GameObject.FindGameObjectWithTag(uiManagerTag).GetComponent<UIManager>()
+                .PlayAnimation("Start"));
+        }
+        
         _timeManager.StartTimer(regularPieceCount, turnPieceCount, _level);
+        yield return null;
     }
 
     private void CreateObstructionJSON(Obstruction.Movement movementType, Color color,

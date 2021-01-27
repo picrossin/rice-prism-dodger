@@ -1,17 +1,22 @@
-﻿using System;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI timer;
+    [Header("In-Game UI")] [SerializeField]
+    private TextMeshProUGUI timer;
+
     [SerializeField] private TextMeshProUGUI bestTime;
     [SerializeField] private GameObject[] stars;
     [SerializeField] private TextMeshProUGUI level;
     [SerializeField] private GameObject[] lives;
 
+    [Header("Transition UI")] [SerializeField]
+    private GameObject circleFade;
+
     private bool _starsInitialized;
-    
+
     private void Update()
     {
         UpdateTimer();
@@ -29,6 +34,13 @@ public class UIManager : MonoBehaviour
     private void OnDisable()
     {
         TimeManager.OnStarted -= ResetStars;
+    }
+
+    public IEnumerator PlayAnimation(string trigger)
+    {
+        Animator animator = circleFade.GetComponent<Animator>();
+        animator.SetTrigger(trigger);
+        yield return new WaitForSeconds(1f);
     }
 
     private void UpdateTimer()
@@ -51,7 +63,7 @@ public class UIManager : MonoBehaviour
         TimeManager timeManager = Manager.Instance.TimeManager;
 
         _starsInitialized = false;
-        
+
         int time = (int) timeManager.Timer;
         if (time > timeManager.ThreeStarGoal && stars[stars.Length - 1].activeSelf)
         {

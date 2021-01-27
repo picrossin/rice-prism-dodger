@@ -393,6 +393,7 @@
           <e p="ObstructionData.cs" t="Include" />
           <e p="Player.cs" t="Include" />
           <e p="SmoothCameraFollow.cs" t="Include" />
+          <e p="SoundPlayer.cs" t="Include" />
           <e p="Spawner.cs" t="Include" />
           <e p="StartPieceExit.cs" t="Include" />
           <e p="StartSection.cs" t="Include" />
