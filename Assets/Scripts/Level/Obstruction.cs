@@ -1,7 +1,5 @@
-﻿using System.Diagnostics.PerformanceData;
-using UnityEngine;
+﻿using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Obstruction : MonoBehaviour
 {
     public enum Movement
@@ -122,6 +120,6 @@ public class Obstruction : MonoBehaviour
         return Physics.Raycast(
             transform.position,
             Vector3.down,
-            _distanceToGround + 0.5f);
+            _distanceToGround + 0.7f);
     }
 }

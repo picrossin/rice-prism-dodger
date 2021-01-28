@@ -45,11 +45,7 @@ public class Player : MonoBehaviour
             Manager.Instance.LoadNextLevel();
             Destroy(gameObject);
         }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.collider.CompareTag(obstructionTag))
+        else if (other.CompareTag(obstructionTag))
         {
             Die();
         }
