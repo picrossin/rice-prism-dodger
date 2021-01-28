@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5708445-87f5-455f-9fd3-921b65e951b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
       <workItem from="1611293960203" duration="24679000" />
       <workItem from="1611542242447" duration="5379000" />
       <workItem from="1611564429487" duration="26879000" />
-      <workItem from="1611714685483" duration="18299000" />
+      <workItem from="1611714685483" duration="18898000" />
     </task>
     <servers />
   </component>
