@@ -4,10 +4,14 @@
     <list default="true" id="f5708445-87f5-455f-9fd3-921b65e951b0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.rice-prism-dodger/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Transition BG.controller" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Transition BG.controller.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainLevel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +28,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartPieceExit.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Manager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Spawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TransitionText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/SmoothCameraFollow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Game State/GameStateManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17AD9609-AE06-4F2C-9315-931FF97ADCF1/c8/2d1bb40e/SetupCoroutine.cs" root0="SKIP_HIGHLIGHTING" />
@@ -34,6 +39,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17AD9609-AE06-4F2C-9315-931FF97ADCF1/e7/824bc7b0/UnitySynchronizationContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MinimapController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/TitleScreenInputManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../Games/Unity/slimerun/Assets/Scripts/Player/MovePlayer.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -49,12 +55,14 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Spawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/StartSection.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/LevelGenerator.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
         <option value="$PROJECT_DIR$/Assets/com.unity.uiextensions/Runtime/Scripts/Primitives/UILineRenderer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MinimapController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/SoundPlayer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TimeManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TransitionText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TitleScreenInputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Manager.cs" />
       </list>
     </option>
@@ -102,7 +110,7 @@
       <workItem from="1611293960203" duration="24679000" />
       <workItem from="1611542242447" duration="5379000" />
       <workItem from="1611564429487" duration="26879000" />
-      <workItem from="1611714685483" duration="12200000" />
+      <workItem from="1611714685483" duration="17627000" />
     </task>
     <servers />
   </component>

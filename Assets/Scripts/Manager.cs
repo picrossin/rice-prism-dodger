@@ -74,11 +74,14 @@ public class Manager : MonoBehaviour
 
     private IEnumerator LoadNextLevelHelper()
     {
-        _timeManager.StopAndLogTime(_level);
+        UIManager uiManager = GameObject.FindGameObjectWithTag(uiManagerTag).GetComponent<UIManager>();
+        
+        bool gotBestTime = _timeManager.StopAndLogTime(_level);
+        uiManager.SetTransitionText(_level, (int) _timeManager.Timer, gotBestTime);
         _level++;
         
-        yield return StartCoroutine(GameObject.FindGameObjectWithTag(uiManagerTag).GetComponent<UIManager>()
-            .PlayAnimation("End"));
+        yield return StartCoroutine(uiManager.PlayAnimation("End"));
+        yield return new WaitForSeconds(1.0f);
         
         MaybeIncreasePieceCount(regularPieceIncreaseFrequency, ref _regularPieceIncreaseCounter, ref regularPieceCount);
         MaybeIncreasePieceCount(turnPieceIncreaseFrequency, ref _turnPieceIncreaseCounter, ref turnPieceCount);
@@ -93,7 +96,7 @@ public class Manager : MonoBehaviour
         {
             _level = 1;
             lives = 3;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // TODO: switch this to title screen when implemented
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
         else
         {

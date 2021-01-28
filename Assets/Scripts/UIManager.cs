@@ -12,8 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI level;
     [SerializeField] private GameObject[] lives;
 
-    [Header("Transition UI")] [SerializeField]
-    private GameObject circleFade;
+    [Header("Transition UI")] 
+    [SerializeField] private GameObject transitionBG;
 
     private bool _starsInitialized;
 
@@ -38,9 +38,15 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator PlayAnimation(string trigger)
     {
-        Animator animator = circleFade.GetComponent<Animator>();
+        Animator animator = transitionBG.GetComponent<Animator>();
         animator.SetTrigger(trigger);
-        yield return new WaitForSeconds(1f);
+        yield return null;
+    }
+
+    public void SetTransitionText(int level, int time, bool bestTime)
+    {
+        TransitionText transitionText = transitionBG.GetComponent<TransitionText>();
+        transitionText.SetText(level, time, bestTime);
     }
 
     private void UpdateTimer()

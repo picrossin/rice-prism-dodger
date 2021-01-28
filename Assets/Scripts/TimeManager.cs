@@ -46,7 +46,7 @@ public class TimeManager : MonoBehaviour
         _threeStarGoal = regularPieceCount * regularPieceGoalTime + turnPieceCount * turnPieceGoalTime;
     }
 
-    public void StopAndLogTime(int level)
+    public bool StopAndLogTime(int level)
     {
         _counting = false;
 
@@ -65,5 +65,7 @@ public class TimeManager : MonoBehaviour
             PlayerPrefs.SetInt($"level{level}", (int) _timer);
             _currentLevelBestTime = (int) _timer;
         }
+
+        return setHighScore;
     }
 }
