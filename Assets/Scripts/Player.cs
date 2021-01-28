@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] [Range(0.0f, 50.0f)] private float speed = 1.0f;
     [SerializeField] private string finishTag = "Finish";
+    [SerializeField] private string obstructionTag = "Obstruction";
 
     [Tooltip("The distance the player must travel vertically to fall out of bounds.")] [SerializeField]
     private float outOfBoundsDistance = 15f;
@@ -27,8 +28,7 @@ public class Player : MonoBehaviour
 
         if (Math.Abs(transform.position.y) >= outOfBoundsDistance)
         {
-            Manager.Instance.ResetLevel();
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -45,5 +45,19 @@ public class Player : MonoBehaviour
             Manager.Instance.LoadNextLevel();
             Destroy(gameObject);
         }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.CompareTag(obstructionTag))
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Manager.Instance.ResetLevel();
+        Destroy(gameObject);
     }
 }
