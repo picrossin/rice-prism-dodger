@@ -9,6 +9,7 @@ public class MinimapController : MonoBehaviour
     [SerializeField] private string playerTag = "Player";
     [SerializeField] private string finishTag = "Finish";
     [SerializeField] private UILineRenderer _uiLineRenderer;
+    [SerializeField] private Canvas canvas;
     
     private GameObject _playerIcon;
     private GameObject _player;
@@ -50,10 +51,10 @@ public class MinimapController : MonoBehaviour
         }
         
         playerCoordinate -= finishCoordinate;
-        playerCoordinate *= transform.parent.GetComponent<Canvas>().scaleFactor;
+        playerCoordinate *= canvas.scaleFactor;
         playerCoordinate *= _scalar;
         _playerIcon.transform.position = transform.position + (Vector3) playerCoordinate;
-        playerCoordinate /= transform.parent.GetComponent<Canvas>().scaleFactor;
+        playerCoordinate /= canvas.scaleFactor;
         
         // Update the line (for some reason it only works if you give it a new array)
         Vector2[] pointList = (Vector2[]) _uiLineRenderer.Points.Clone();
