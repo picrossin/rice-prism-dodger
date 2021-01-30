@@ -65,9 +65,9 @@ public class Obstruction : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag(wallTag))
+        if (other.CompareTag(wallTag))
         {
             _movement *= -1;
         }
