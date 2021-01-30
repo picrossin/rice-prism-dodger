@@ -1,4 +1,5 @@
-# prism dodger+
+# prism dodger+ 
+![prism dodger+ logo](Assets/Textures/Icon.png?raw=true "Title")
 ### dodge prisms and perfect your best times as you roll your way to the finish in the infinite, procedurally generated levels of ***prism dodger+***
 
 - green prisms move sideways across the track
