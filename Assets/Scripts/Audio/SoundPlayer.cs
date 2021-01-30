@@ -5,7 +5,8 @@ public class SoundPlayer : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private bool loopClipForever;
 
-    private SoundPlayer _instance;
+    private static SoundPlayer _instance;
+    
     private AudioSource _audioSource;
     
     private void Start()
