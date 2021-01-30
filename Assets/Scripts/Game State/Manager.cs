@@ -67,6 +67,14 @@ public class Manager : MonoBehaviour
         StartCoroutine(SetupLevel(regularPieceCount, turnPieceCount));
     }
 
+    private void Update()
+    {
+        if (Application.platform != RuntimePlatform.WebGLPlayer && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public void LoadNextLevel()
     {
         StartCoroutine(LoadNextLevelHelper());

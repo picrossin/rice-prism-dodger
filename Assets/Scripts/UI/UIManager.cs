@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -46,7 +47,9 @@ public class UIManager : MonoBehaviour
     public void SetTransitionText(int level, int time, bool bestTime)
     {
         TransitionText transitionText = transitionBG.GetComponent<TransitionText>();
-        transitionText.SetText(level, time, bestTime);
+
+        int starCount = stars.Count(p => p.activeSelf);
+        transitionText.SetText(level, time, bestTime, starCount);
     }
 
     private void UpdateTimer()

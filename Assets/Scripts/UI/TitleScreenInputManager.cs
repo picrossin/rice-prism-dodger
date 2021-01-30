@@ -14,6 +14,11 @@ public class TitleScreenInputManager : MonoBehaviour
         {
             StartCoroutine(StartGame());
         }
+        
+        if (Application.platform != RuntimePlatform.WebGLPlayer && Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     private IEnumerator StartGame()
