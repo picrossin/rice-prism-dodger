@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        _playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        _playerInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
 
         if (Math.Abs(transform.position.y) >= outOfBoundsDistance)
         {
